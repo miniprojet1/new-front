@@ -2,21 +2,24 @@
 <div class="limiter" >
   <div class="container-login100">
     <div class="wrap-login100">
-      <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+      <form class="login100-form validate-form p-l-55 p-r-55 p-t-178"  (ngSubmit)="addForm(rForm.value)"   [formGroup]='rForm'>
 					<span class="login100-form-title">
 						Sign In
 					</span>
 
         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-          <input class="input100" type="text" name="username" placeholder="Username" [(ngModel)]="loginn.login" required minlength="4" >
+          <input formControlName="log" class="input100" type="text" name="username" placeholder="Username" [(ngModel)]="loginn.login" required minlength="4" >
           <span class="focus-input100"></span>
         </div>
+        <div class="alert alert-link" *ngIf="!rForm.controls['log'].valid && rForm.controls['log'].touched">veuiller saisir votre pseudo </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-          <input class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="loginn.password">
+          <input formControlName="pass" class="input100" type="password" name="pass" placeholder="Password" [(ngModel)]="loginn.password">
           <span class="focus-input100"></span>
         </div>
-<br>
+        <div class="alert alert-danger" *ngIf="!rForm.controls['pass'].valid && rForm.controls['pass'].touched">veuiller saisir votre mot de passe </div>
+
+        <br>
 
         <div class="container-login100-form-btn">
           <button class="login100-form-btn" (click)="login(login)" >
