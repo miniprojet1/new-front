@@ -1,0 +1,192 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-light ">
+
+
+
+  </nav>
+  <img src="../../../assets/img1/logoo.JPG"  width="120px" height="30" alt="" style="padding-right: 10px;">
+
+  <!-- Navbar Search -->
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+  <!-- Navbar -->
+  <ul class="navbar-nav ml-auto ml-md-0">
+    <li class="nav-item dropdown no-arrow mx-1">
+      <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bell fa-fw"></i>
+        <span class="badge badge-danger">9+</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown no-arrow mx-1">
+      <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-envelope fa-fw"></i>
+        <span class="badge badge-danger">7</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user-circle fa-fw"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="#">Settings</a>
+        <a class="dropdown-item" href="#">Activity Log</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+      </div>
+    </li>
+  </ul>
+
+</nav>
+
+<div id="wrapper">
+
+  <div id="main">
+
+    <span onclick="openNav()">&#9776; Menu</span>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <a href="#user" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="fa fa-user fa-fw mr-3"></span>
+        <span class="menu-collapsed" style="font-family: serif;">Gestion Fournisseur</span>
+        <span class="submenu-icon ml-auto"></span>
+      </div>
+    </a>
+    <!-- Submenu content -->
+    <div id='user' class="collapse sidebar-submenu">
+      <a routerLink="../ajoutfournisseur" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+      </a>
+      <a routerLink="../listfournisseur" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+      </a>
+    </div>
+    <br>
+    <a href="#fourn" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="fa fa-user fa-fw mr-3"></span>
+        <span class="menu-collapsed" style="font-family: serif;">Gestion article</span>
+        <span class="submenu-icon ml-auto"></span>
+      </div>
+    </a>
+    <!-- Submenu content -->
+    <div id='fourn' class="collapse sidebar-submenu">
+      <a routerLink="../ajoutarticle" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+      </a>
+      <a routerLink="/listarticle" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+      </a>
+    </div>
+    <br>
+    <a href="#event" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="fa fa-calendar fa-fw mr-3"></span>
+        <span class="menu-collapsed" style="font-family: serif;">Gestion Employe</span>
+        <span class="submenu-icon ml-auto"></span>
+      </div>
+    </a>
+    <!-- Submenu content -->
+    <div id='event' class="collapse sidebar-submenu">
+      <a routerLink="../ajoutemploye" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+      </a>
+      <a routerLink="/listemploye" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+      </a>
+    </div>
+    <br>
+    <a href="#conv" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="fa fa-tasks fa-fw mr-3"></span>
+        <span class="menu-collapsed" style="font-family: serif;"> Gestion Point de vente</span>
+        <span class="submenu-icon ml-auto"></span>
+      </div>
+    </a>
+    <!-- Submenu content -->
+    <div id='conv' class="collapse sidebar-submenu">
+      <a routerLink="/admin/addConv" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+      </a>
+      <a routerLink="/admin/Convs" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+      </a>
+    </div>
+    <br>
+    <a href="#cat" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="fa fa-list fa-fw mr-3"></span>
+        <span class="menu-collapsed" style="font-family: serif;">Gestion Payement</span>
+        <span class="submenu-icon ml-auto"></span>
+      </div>
+    </a>
+    <!-- Submenu content -->
+    <div id='cat' class="collapse sidebar-submenu">
+      <a routerLink="../ajoutpayement" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+      </a>
+      <a routerLink="/listpayement" class="list-group-item list-group-item-action bg-dark text-white">
+        <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+      </a>
+    </div>
+
+
+  </div>
+  <div class="container">
+    <form class="wrap-input100 validate-input m-b-16 " role="form" (ngSubmit)="addForm(rForm.value)" (ngSubmit)="processForm()"  [formGroup]='rForm'>
+      <h2 style="font-family: 'Open Sans' , sans-serif">Ajout d'un payement</h2>
+      <div class="form-group" style="padding-left: 40px;">
+        <label for="fname" class="col-sm-1 control-label">date_ech_pre</label>
+        <div class="col-sm-11">
+          <input formControlName="dateechpre" type="date" id="nom" placeholder="date_ech_pre" class="input100" autofocus [(ngModel)]="payement.date_ech_pre" minlength="5" maxlength="20"  >
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="!rForm.controls['dateechpre'].valid && rForm.controls['dateechpre'].touched">veuiller saisir une date </div>
+      <div class="form-group" style="padding-left: 40px;">
+        <label for="fname" class="col-sm-1 control-label">date_ech_pro</label>
+        <div class="col-sm-11">
+          <input formControlName="dateechpro" type="date" id="nom" placeholder="dateechpro" class="input100" autofocus [(ngModel)]="payement.date_ech_pro" minlength="5" maxlength="20"  >
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="!rForm.controls['dateechpro'].valid && rForm.controls['dateechpro'].touched ">veuiller saisir une date </div>
+      <div class="form-group" style="padding-left: 40px;">
+        <label for="lname" class="col-sm-1 control-label">mode_payement </label>
+        <select type="text" name="id_fournisseur" class="form-control"
+                [(ngModel)]="payement.mode_payement">
+          <option [value]="cheque" >cheque</option>
+          <option [value]="espece" >espece</option>
+        </select>
+      </div>
+      <div class="form group"  style="padding-left: 40px;">
+        <label for="lname" class="col-sm-1 control-label">numéro du fournisseur</label>
+        <div class="col-sm-11">
+          <select type="text" name="id_fournisseur" class="input100" [(ngModel)]="payement.id_fournisseur">
+            <option *ngFor="let c of fournisseurs">{{c.id}}</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block" [disabled]="rForm.invalid" >enregistrer</button>
+
+    </form> <!-- /form -->
+  </div>
+</div>
