@@ -14,7 +14,12 @@ export class LoginComponent implements OnInit {
     login: "",
     password : ""
   };
-  constructor(private _articleService:ArticleService,private _rotuer:Router ) { }
+  constructor(private _articleService:ArticleService,private _rotuer:Router ) {
+    if(localStorage.getItem("user")){
+      this._rotuer.navigate(['../admi']);
+
+    }
+  }
 
   ngOnInit() {
   }
@@ -23,11 +28,13 @@ export class LoginComponent implements OnInit {
     console.log(this.loginn);
     this._articleService.login(this.loginn.login,this.loginn.password).subscribe(
       data => {
-        if(data == 0){
+        if(data.login == null){
           alert('login or password incorrect');
+
         }
 
         else {
+          localStorage.setItem("user",JSON.stringify(data));
           this._rotuer.navigate(['../admi']);
         }
       }

@@ -91,7 +91,7 @@
         <ul class="nav nav-list promowrapper">
           <li>
             <div class="thumbnail">
-              <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> voir detail</a>
+              <a class="zoomTool" title="add to cart"><span class="icon-search"></span> voir detail</a>
               <img src="../../assets/img1/a.jpg" alt="bootstrap ecommerce templates">
               <div class="caption">
                 <h4><a  href="product_details.html">Prix</a> <span class="pull-right">$22.00</span></h4>
@@ -117,13 +117,17 @@
               </p>
             </div>
             <div class="span4 alignR">
-              <form class="form-horizontal qtyFrm">
-                <h3> {{f.prix_article}}</h3>
+              <form   class="form-horizontal qtyFrm"  role="form">
+                <h5> {{f.prix_article}}</h5>
+
+
+                <input name="prix_panier"   placeholder="{{f.prix_article}}" type="text" [(ngModel)]="panier.prix_article" />
+                <input name="nom_panier"   placeholder="{{f.nom_article}}" type="text" [(ngModel)]="panier.nom_article" />
                 <label class="checkbox">
                   <input type="checkbox">  Adds product to compair
                 </label><br>
                 <div class="btn-group">
-                  <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+                  <button  type="submit" class="defaultBtn" (click) = "ajouterPanier(f)"><span class=" icon-shopping-cart"></span> Add to cart</button>
                   <a href="product_details.html" class="shopBtn">VIEW</a>
                 </div>
               </form>
@@ -135,8 +139,8 @@
 
           <hr class="soften">
 
+        </div>
       </div>
     </div>
   </div>
-</div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>

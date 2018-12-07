@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admi',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmiComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _rotuer:Router) {
+    if(!localStorage.getItem("user")){
+      this._rotuer.navigate(['../login']);
 
+    }
+  }
+  deconnexion(){
+    localStorage.clear();
+    this._rotuer.navigate(['../login']);
+
+
+  }
   ngOnInit() {
   }
 

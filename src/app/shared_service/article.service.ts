@@ -47,7 +47,7 @@ createArticle(article:Article){
   }
 
   login(login :String , password : String){
-    return this._http.get(this.baseUrl+'/commissioner/'+login+'/'+password).pipe(map((response:Response)=>response.json()));
+    return this._http.get(this.baseUrl+'/co/'+login+'/'+password).pipe(map((response:Response)=>response.json()));
   }
 }
 

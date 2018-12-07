@@ -26,6 +26,7 @@ import { AdmiComponent } from './components/admi/admi.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ListeComponent } from './components/liste/liste.component';
 import { ProduitComponent } from './components/produit/produit.component';
+import { ListerPanierComponent } from './components/lister-panier/lister-panier.component';
 
 
 const appRoutes:Routes=[
@@ -63,6 +64,7 @@ const appRoutes:Routes=[
     ContactComponent,
     ListeComponent,
     ProduitComponent,
+    ListerPanierComponent,
 
   ],
   imports: [
