@@ -41,8 +41,8 @@ const appRoutes:Routes=[
   {path: 'listemploye',component:ListemployeComponent},
   {path: 'admi',component:AdmiComponent},
   {path: 'contact',component:ContactComponent},
-  {path: 'liste',component:ListeComponent}
-
+  {path: 'liste',component:ListeComponent},
+  {path: 'produit',component:ProduitComponent}
 
 ] 
 @NgModule({
