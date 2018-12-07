@@ -13,57 +13,48 @@ import {Login}from'../../login';
 export class LoginComponent implements OnInit {
   private  loginn = {
     login: "",
-<<<<<<< HEAD
     password : ""
   };
   constructor(private _articleService:ArticleService,private _rotuer:Router ) {
-    if(localStorage.getItem("user")){
-      this._rotuer.navigate(['../admi']);
+    if (localStorage.getItem("user")) {
+      let user = JSON.parse(localStorage.getItem('user'));
+      if(user.role == "admin"){
+        this._rotuer.navigate(['../admi']);
+      }
 
     }
-=======
-    password: ""
-  }
-    rForm: FormGroup;
-  post: any;
- log:String ;
-  pass: String ;
-
-
-
-addForm(post) {
-
-}
-  constructor(private _articleService:ArticleService,private _rotuer:Router,  fb: FormBuilder ) {
-    this.rForm = fb.group({
-
-      'log': [null, Validators.required],
-      'pass': [null, [Validators.required]]
-
-
-
-    });
->>>>>>> 1493a5946b3274b18284128ebccb5fece646ff07
   }
 
   ngOnInit() {
   }
   login(){
-    
     console.log(this.loginn);
-    this._articleService.login(this.loginn.login,this.loginn.password).subscribe(
-      data => {
-        if(data.login == null){
-          alert('login or password incorrect');
+    if(this.loginn.login == "" || this.loginn.password == ""){
+      alert("login et password ne doivent pas etre vide");
+    }
 
-        }
+    else {
+      this._articleService.login(this.loginn.login,this.loginn.password).subscribe(
+        data => {
+          if(data.login == null){
+            alert('login or password incorrect');
 
-        else {
-          localStorage.setItem("user",JSON.stringify(data));
-          this._rotuer.navigate(['../admi']);
+          }
+
+          else {
+
+            localStorage.setItem("user",JSON.stringify(data));
+            if(data.role=="admin"){
+              this._rotuer.navigate(['../admi']);
+            }
+            else {
+              this._rotuer.navigate(['../liste']);
+            }
+          }
         }
-      }
-    );
+      );
+    }
+
 
    }
     }

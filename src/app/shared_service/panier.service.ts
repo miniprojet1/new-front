@@ -18,7 +18,7 @@ export class PanierService {
   private panier= new Panier();
   constructor(private _http:Http) { }
   getPanier(){
-    return this._http.get(this.baseUrl+'/Panier',this.options).pipe(map((response:Response)=>response.json()));
+    return this._http.get(this.baseUrl+'/Panier/'+JSON.parse(localStorage.getItem("user")).id,this.options).pipe(map((response:Response)=>response.json()));
   }
   deletePanier(id:Number){
     return this._http.delete(this.baseUrl+'/Panier/'+id,this.options).pipe(map((response:Response)=>response.json()));
@@ -31,6 +31,14 @@ export class PanierService {
   }
   updatePanier(panier:Panier){
     return this._http.put(this.baseUrl+'/Panier',JSON.stringify(Panier), this.options).pipe(map((response:Response)=>response.json()));
+
+  }
+
+  updateByQuantity(id : Number){
+    return this._http.get(this.baseUrl+'/Article/update/'+id,this.options).pipe(map((response:Response)=>response.json()));
+  }
+
+  getall(){
 
   }
   setter(panier:Panier){

@@ -45,7 +45,8 @@ const appRoutes:Routes=[
   {path: 'contact',component:ContactComponent},
   {path: 'liste',component:ListeComponent},
   {path: 'produit',component:ProduitComponent},
-  {path: 'inscria',component:InscriaComponent}
+  {path: 'inscria',component:InscriaComponent},
+  {path: 'paniers',component:ListerPanierComponent}
 
 ] 
 @NgModule({

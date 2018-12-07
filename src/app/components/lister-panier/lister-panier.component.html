@@ -1,3 +1,249 @@
-<p>
-  lister-panier works!
-</p>
+
+<html>
+<div id="a">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-light ">
+
+
+
+    </nav>
+    <img src="../../../assets/img1/logoo.JPG"  width="120px" height="30" alt="" style="padding-right: 10px;">
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span class="badge badge-danger">7</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <div id="main">
+
+      <span onclick="openNav()">&#9776; Menu</span>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <a href="#user" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-user fa-fw mr-3"></span>
+          <span class="menu-collapsed" style="font-family: serif;">Gestion Fournisseur</span>
+          <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div id='user' class="collapse sidebar-submenu">
+        <a routerLink="../ajoutfournisseur" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+        </a>
+        <a routerLink="../listfournisseur" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+        </a>
+      </div>
+      <br>
+      <a href="#fourn" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-user fa-fw mr-3"></span>
+          <span class="menu-collapsed" style="font-family: serif;">Gestion article</span>
+          <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div id='fourn' class="collapse sidebar-submenu">
+        <a routerLink="../ajoutarticle" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+        </a>
+        <a routerLink="/listarticle" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+        </a>
+      </div>
+      <br>
+      <a href="#event" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-calendar fa-fw mr-3"></span>
+          <span class="menu-collapsed" style="font-family: serif;">Gestion Employe</span>
+          <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div id='event' class="collapse sidebar-submenu">
+        <a routerLink="../ajoutemploye" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+        </a>
+        <a routerLink="/listemploye" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+        </a>
+      </div>
+      <br>
+      <a href="#conv" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-tasks fa-fw mr-3"></span>
+          <span class="menu-collapsed" style="font-family: serif;"> Gestion Point de vente</span>
+          <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div id='conv' class="collapse sidebar-submenu">
+        <a routerLink="/admin/addConv" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+        </a>
+        <a routerLink="/admin/Convs" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+        </a>
+      </div>
+      <br>
+      <a href="#cat" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-list fa-fw mr-3"></span>
+          <span class="menu-collapsed" style="font-family: serif;">Gestion Payement</span>
+          <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div id='cat' class="collapse sidebar-submenu">
+        <a routerLink="/admin/addCategory" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Ajouter</span>
+        </a>
+        <a routerLink="/admin/Categories" class="list-group-item list-group-item-action bg-dark text-white">
+          <span class="menu-collapsed" style="font-family: serif;">Liste</span>
+        </a>
+      </div>
+
+
+    </div>
+
+
+
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Acceuil</a>
+          </li>
+          <li class="breadcrumb-item active">Article</li>
+
+        </ol>
+
+        <div class="container">
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-md-6">
+                  <h2>Gestion <b>panier</b></h2>
+                </div>
+                <div class="col-sm-6">
+                  <a href="#addEmployeeModal"  data-toggle="modal"><i >&#xE147;</i> </a>
+                </div>
+              </div>
+            </div>
+            <table class="table table-striped table-hover">
+              <thead>
+              <tr>
+
+                <th>prix article</th>
+                <th>nom article </th>
+
+                <th rowspan="2">action</th>
+              </tr>
+              </thead>
+              <tbody>
+
+
+              <tr *ngFor="let f of paniers">
+
+                <td>{{f.prix_article}}</td>
+                <td>{{f.nom_article}}</td>
+
+                <td><button class="btn btn-danger" (click)="deleteArticle(f)">Delete</button> </td>
+              </tr>
+
+              </tbody>
+            </table>
+            <h5>totale : {{totale}}</h5>
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

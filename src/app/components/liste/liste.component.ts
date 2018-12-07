@@ -4,6 +4,7 @@ import {Article} from '../../article';
 import {Panier} from '../../panier';
 import {PanierService} from '../../shared_service/panier.service';
 import {ArticleService} from '../../shared_service/article.service';
+import {NotificationService} from '../../shared_service/notification.service';
 @Component({
   selector: 'app-liste',
   templateUrl: './liste.component.html',
@@ -14,7 +15,9 @@ export class ListeComponent implements OnInit {
   private articles: Article[];
   private panier: Panier;
 
-  constructor(private _articleService: ArticleService, private _panierService: PanierService, private _rotuer: Router) {
+
+  constructor(private _articleService: ArticleService, private _panierService: PanierService, private _rotuer: Router, private _notificationService: NotificationService) {
+
   }
 
   ngOnInit() {
@@ -40,14 +43,30 @@ export class ListeComponent implements OnInit {
   }
 
   ajouterPanier(data: Article) {
-    this.panier = new Panier();
-    this.panier.nom_article = data.nom_article;
-    this.panier.prix_article=data.prix_article;
-    this.panier.prix_article = data.prix_article;
-    this.panier.totale = 0;
-    this._panierService.createPanier(this.panier).subscribe();
-    this._rotuer.navigate(['/listpanier']);
+
+
+
+    if(data.qte_article > 0){
+      let x =data.qte_article;
+      x--;
+      data.qte_article = x;
+     this._panierService.updateByQuantity(data.id).subscribe((article)=> {
+     })
+     this.panier = new Panier();
+     this.panier.nom_article = data.nom_article;
+     this.panier.prix_article=data.prix_article;
+     this.panier.prix_article = data.prix_article;
+     this.panier.idclient = JSON.parse(localStorage.getItem("user")).id;
+     this.panier.totale = 0;
+     this._panierService.createPanier(this.panier).subscribe();
+   }
+
+   else {
+     const notification = { message : "l'article "+data.nom_article+" a subit une rupture de stock"};
+     this._notificationService.createArticle(notification).subscribe((data) => console.log(data));
+   }
   }
+
 
 
 

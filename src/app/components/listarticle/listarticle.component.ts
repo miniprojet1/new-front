@@ -11,7 +11,19 @@ import {Router} from '@angular/router';
 export class Listarticlecomponent implements OnInit {
 private articles:Article[];
 
-  constructor(private _articleService:ArticleService,private _router:Router) { }
+  constructor(private _articleService:ArticleService,private _router:Router) {
+    if(!localStorage.getItem("user")){
+      this._router.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if(user.role !== "admin"){
+        this._router.navigate(['../liste']);
+      }
+    }
+
+  }
 
   ngOnInit() { 
     this._articleService.getArticle().subscribe((articles)=>{
