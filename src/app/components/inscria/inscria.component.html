@@ -1,0 +1,57 @@
+<div class="container">
+  <form class="wrap-input100 validate-input m-b-16 " role="form" (ngSubmit)="addForm(rForm.value)"  [formGroup]='rForm'>
+    <h2 style="font-family: 'Open Sans' , sans-serif">Inscription</h2>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="fname" class="col-sm-1 control-label">Nom</label>
+      <div class="col-sm-11">
+        <input formControlName="nom" type="text" id=" nom" placeholder="nom" class="input100" autofocus  minlength="5" maxlength="20"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['nom'].valid && rForm.controls['nom'].touched">veuiller saisir un nom entre 5 et 20 caractères </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="fname" class="col-sm-1 control-label">Prénom</label>
+      <div class="col-sm-11">
+        <input formControlName="prenom" type="text" id="prénom" placeholder="prénom" class="input100" autofocus  minlength="5" maxlength="20"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['prenom'].valid && rForm.controls['prenom'].touched">veuiller saisir un prenom entre 5 et 20 caractères </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="lname" class="col-sm-1 control-label">Adresse</label>
+      <div class="col-sm-11">
+        <input formControlName="adresse" type="text" id="Adresse" placeholder="veuiller saisir votre adresse" class="input100" autofocus  minlength="5" maxlength="20"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['adresse'].valid && rForm.controls['adresse'].touched ">veuiller saisir une adresse entre 5 et 20 caractères </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="fname" class="col-sm-1 control-label">lieu de naissance</label>
+      <div class="col-sm-11">
+        <input formControlName="lieu" type="text" id="lieu" placeholder="First Name" class="input100" autofocus  minlength="5" maxlength="20"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['lieu'].valid && rForm.controls['lieu'].touched">veuiller saisir le lieu de naissance entre 5 et 20 caractères </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="fname" class="col-sm-1 control-label">Date de naissance</label>
+      <div class="col-sm-11">
+        <input formControlName="Date" type="date" id="date" placeholder="First Name" class="input100" autofocus  minlength="5" maxlength="20"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['Date'].valid && rForm.controls['Date'].touched">veuiller saisir votre date de naissance </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="fname" class="col-sm-1 control-label">Adresse courriel</label>
+      <div class="col-sm-11">
+        <input formControlName="courriel" type="email" id="clourrie" placeholder="First Name" class="input100" autofocus  minlength="5" maxlength="40"  >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['courriel'].valid && rForm.controls['courriel'].touched">veuiller saisir votre adresse courriel entre 5 et 40 caractères </div>
+    <div class="form-group" style="padding-left: 40px;">
+      <label for="lname" class="col-sm-1 control-label">Numéro de téléphone </label>
+      <div class="col-sm-11">
+        <input formControlName="numero" type="number" id="email" placeholder="veuiller saisir votre numero" class="input100" name= "numero" >
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="!rForm.controls['numero'].valid && rForm.controls['numero'].touched">veuiller saisir votre numéro de telephone</div>
+
+    <button type="submit" class="btn btn-success btn-block" [disabled]="rForm.invalid" >Register</button>
+
+  </form> <!-- /form -->
+</div>

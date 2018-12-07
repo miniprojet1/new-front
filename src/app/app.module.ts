@@ -26,6 +26,7 @@ import { AdmiComponent } from './components/admi/admi.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ListeComponent } from './components/liste/liste.component';
 import { ProduitComponent } from './components/produit/produit.component';
+import { InscriaComponent } from './components/inscria/inscria.component';
 
 
 const appRoutes:Routes=[
@@ -42,7 +43,8 @@ const appRoutes:Routes=[
   {path: 'admi',component:AdmiComponent},
   {path: 'contact',component:ContactComponent},
   {path: 'liste',component:ListeComponent},
-  {path: 'produit',component:ProduitComponent}
+  {path: 'produit',component:ProduitComponent},
+  {path: 'inscria',component:InscriaComponent}
 
 ] 
 @NgModule({
@@ -63,6 +65,7 @@ const appRoutes:Routes=[
     ContactComponent,
     ListeComponent,
     ProduitComponent,
+    InscriaComponent,
 
   ],
   imports: [
