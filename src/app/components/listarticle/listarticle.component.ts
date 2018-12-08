@@ -24,7 +24,10 @@ private articles:Article[];
     }
 
   }
-
+  deconnexion(){
+    localStorage.clear();
+    this._router.navigate(['../login']);
+  }
   ngOnInit() { 
     this._articleService.getArticle().subscribe((articles)=>{
       console.log(articles);

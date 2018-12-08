@@ -15,6 +15,7 @@ export class ListerPanierComponent implements OnInit {
   private totale :number = 0;
   constructor(private _panierService:PanierService,private _router:Router) {
 
+
     this._panierService.getPanier().subscribe((paniers)=>{
         console.log(paniers);
         this.paniers=paniers;
@@ -30,6 +31,12 @@ export class ListerPanierComponent implements OnInit {
   ngOnInit() {
 
 
+  }
+  deleteArticle(panier) {
+    this._panierService.deletePanier(panier.id).subscribe((data) => {
+        this.paniers.splice(this.paniers.indexOf(panier), 1);
+      }
+    )
   }
 
 }

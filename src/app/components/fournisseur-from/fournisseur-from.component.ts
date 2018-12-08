@@ -26,6 +26,16 @@ export class FournisseurFromComponent implements OnInit {
 
 private fournisseur:Fournisseur;
   constructor(private _fournisseurService: FournisseurService , private _rotuer:Router , fb: FormBuilder ) {
+    if(!localStorage.getItem("user")){
+      this._rotuer.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if(user.role !== "admin"){
+        this._rotuer.navigate(['../liste']);
+      }
+    }
     this.rForm = fb.group({
       'nom': [null, Validators.required],
       'adresse': [null, Validators.required],
@@ -34,7 +44,10 @@ private fournisseur:Fournisseur;
     });
 
   }
-
+  deconnexion(){
+    localStorage.clear();
+    this._rotuer.navigate(['../login']);
+  }
   ngOnInit() {
     this.fournisseur=this._fournisseurService.getter();
   }

@@ -10,7 +10,24 @@ import {Router} from '@angular/router';
 })
 export class ListpaymentComponent implements OnInit {
   private payements:Payement[];
-  constructor(private _payementService:PayementService,private _router:Router) { }
+  constructor(private _payementService:PayementService,private _router:Router) {
+    if(!localStorage.getItem("user")){
+      this._router.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if(user.role !== "admin"){
+        this._router.navigate(['../liste']);
+      }
+    }
+
+  }
+  deconnexion(){
+    localStorage.clear();
+    this._router.navigate(['../login']);
+  }
+
   ngOnInit() { 
     this._payementService.getPayement().subscribe((payements)=>{
       console.log(payements);

@@ -11,7 +11,22 @@ import {Router} from '@angular/router';
 export class ListfournisseurComponent implements OnInit {
 private fournisseurs:Fournisseur[];
 
-  constructor(private _fournisseurService:FournisseurService,private _router:Router) { }
+  constructor(private _fournisseurService:FournisseurService,private _router:Router) {
+    if(!localStorage.getItem("user")){
+      this._router.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if(user.role !== "admin"){
+        this._router.navigate(['../liste']);
+      }
+    }
+  }
+  deconnexion(){
+    localStorage.clear();
+    this._router.navigate(['../login']);
+  }
 
   ngOnInit() { 
     this._fournisseurService.getFournisseur().subscribe((fournisseurs)=>{

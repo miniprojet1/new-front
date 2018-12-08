@@ -23,7 +23,7 @@ export class FromArtComponent implements OnInit {
   nomarticle: String = '';
   prixarticle: number ;
   categoriearticle: String = '';
-  quantite: number ;
+  qte_article: number ;
 
 
   addForm(post) {
@@ -31,17 +31,30 @@ export class FromArtComponent implements OnInit {
   }
 
   constructor(private _fournisseurService:FournisseurService, private _articleService:ArticleService,private _rotuer:Router,  fb: FormBuilder ) {
+    if(!localStorage.getItem("user")){
+      this._rotuer.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (user.role !== "admin") {
+        this._rotuer.navigate(['../liste']);
+      }
+    }
     this.rForm = fb.group({
 
       'nomarticle': [null, Validators.required],
       'prixarticle': [null, [Validators.required]],
       'categoriearticle': [null, Validators.required],
-      'qantite': [null, [Validators.required]],
+      'qte_article': [null, [Validators.required]],
 
 
     });
   }
-
+  deconnexion(){
+    localStorage.clear();
+    this._rotuer.navigate(['../login']);
+  }
   ngOnInit() {
     this.article=this._articleService.getter();
     this.fournisseur=this._fournisseurService.getter()

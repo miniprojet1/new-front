@@ -29,6 +29,17 @@ export class FromPaymentComponent implements OnInit {
 
   }
   constructor(private _fournisseurService:FournisseurService, private _payementService:PayementService,private _rotuer:Router , fb: FormBuilder) {
+
+    if(!localStorage.getItem("user")){
+      this._rotuer.navigate(['../login']);
+
+    }
+    else {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (user.role !== "admin") {
+        this._rotuer.navigate(['../liste']);
+      }
+    }
     this.rForm = fb.group({
 
       'dateechpre': [null, Validators.required],
@@ -38,7 +49,10 @@ export class FromPaymentComponent implements OnInit {
 
     });
   }
-
+  deconnexion(){
+    localStorage.clear();
+    this._rotuer.navigate(['../login']);
+  }
   ngOnInit() {
     this.payement=this._payementService.getter();
     this.fournisseur=this._fournisseurService.getter()
