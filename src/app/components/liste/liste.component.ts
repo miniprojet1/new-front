@@ -14,9 +14,16 @@ export class ListeComponent implements OnInit {
   private article: Article;
   private articles: Article[];
   private panier: Panier;
+  private nom:string;
 
 
   constructor(private _articleService: ArticleService, private _panierService: PanierService, private _rotuer: Router, private _notificationService: NotificationService) {
+
+  }
+  deconnexion(){
+    localStorage.clear();
+    this._rotuer.navigate(['../login']);
+
 
   }
 
@@ -30,7 +37,7 @@ export class ListeComponent implements OnInit {
         console.log(error);
       }
     );
-
+    this.nom = JSON.parse(localStorage.getItem("user")).nom;
   }
 
   ajout() {
